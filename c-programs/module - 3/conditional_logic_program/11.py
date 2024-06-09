@@ -1,0 +1,1 @@
+# wap to find even/odd using operator
