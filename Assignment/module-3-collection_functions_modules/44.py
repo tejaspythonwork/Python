@@ -12,4 +12,4 @@ print(v1)
 print(v2)
 
 
-print(int(chr(v1)) * int(chr(v2)))
+print((v1) * (v2))

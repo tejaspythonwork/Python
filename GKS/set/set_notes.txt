@@ -1,0 +1,6 @@
+set is 
+1.un-orderable
+2.un-sequenceable
+3.un-indexable
+4.mutable: you can add element or remove elements after set is created
+

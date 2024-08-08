@@ -1,0 +1,11 @@
+
+--------------- 18-07-2024 -------------------
+--------------- 15_11_36 -------------------
+
+your name = Tejas Bhatt
+your email = t@gmail.com
+your gender = male
+your contact = 9898655644
+your vac type = co-vaccine
+your dose number = 2
+---------------------------------------------------

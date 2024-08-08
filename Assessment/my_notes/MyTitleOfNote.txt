@@ -1,0 +1,7 @@
+31-07-2024 
+ 11:48:10 
+
+E-Note Title = MyTitleOfNote
+E-Note Description = MyContent
+E-Note Generator = Tejas
+=================================================

@@ -1,0 +1,29 @@
+
+Customer Name = Tejas
+Pizza Quantity = 55
+Pasta Quantity = 55
+Total Pizza Price = 604.45
+Total Pasta Price = 522.5
+Total Amount = 1126.95
+======================================================
+Customer Name = Tejas
+Pizza Quantity = 55
+Pasta Quantity = 55
+Total Pizza Price = 604.45
+Total Pasta Price = 522.5
+Total Amount = 1126.95
+======================================================
+Customer Name = Tejas
+Pizza Quantity = 66
+Pasta Quantity = 66
+Total Pizza Price = 725.34
+Total Pasta Price = 627.0
+Total Amount = 1352.3400000000001
+======================================================
+Customer Name = Tejas
+Pizza Quantity = 55
+Pasta Quantity = 55
+Total Pizza Price = 604.45
+Total Pasta Price = 522.5return statment 
+Total Amount = 1126.95
+======================================================

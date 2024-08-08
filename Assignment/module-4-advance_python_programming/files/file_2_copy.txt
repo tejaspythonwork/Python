@@ -1,0 +1,10 @@
+Hi - 1
+I am learning python - 2
+This is concept of file handling - 3
+You are reading this file - 4 
+This is appending line 1 - 5
+new_content-6 
+new_content-6
+new_content-6
+This is appending1111111111 Line 2 - 915-07-2024
+08:20:19

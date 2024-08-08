@@ -1,0 +1,12 @@
+---------------------------------------------------------------
+tuples are immutable
+means: we can not add elements in tuple after creation
+means: we can not make change in elements of tuple after 
+creation
+means: we can access elements of tuple after creation   
+---------------------------------------------------------------
+we can access elements of tuples
+when we want to declare constant, tuple can be used
+tuples are ordered
+means tuple maintain order
+

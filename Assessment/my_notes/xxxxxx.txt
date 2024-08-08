@@ -1,0 +1,7 @@
+31-07-2024 
+ 11:19:41 
+
+E-Note Title = xxxxxx
+E-Note Description = zzz1234
+E-Note Generator = -
+=================================================

@@ -1,0 +1,44 @@
+Hello World
+Hello World
+Hello World
+
+Customer Name = Tejas Bhatt
+Pizza Quantity = 5
+Pasta Quantity = 5
+Total Pizza Price = 54.95
+Total Pasta Price = 47.5
+Congratulation !! 1.5ltr soft drink is free
+Congratulation  !! 2 bruschetta Free
+Congratutalion 2 choco brownie Icecream Free
+Total Amount = 102.45 AUD
+======================================================
+Customer Name = Tejas Bhatt
+Pizza Quantity = 10
+Pasta Quantity = 10
+Total Pizza Price = 109.9
+Total Pasta Price = 95.0
+Congratulation !! 1.5ltr soft drink is free
+Congratulation  !! 2 bruschetta Free
+Congratutalion 2 choco brownie Icecream Free
+Total Amount = 204.9 AUD
+======================================================
+Customer Name = Tejas Bhatt
+Pizza Quantity = 15
+Pasta Quantity = 15
+Total Pizza Price = 164.85
+Total Pasta Price = 142.5
+Congratulation !! 1.5ltr soft drink is free
+Congratulation  !! 2 bruschetta Free
+Congratutalion 2 choco brownie Icecream Free
+Total Amount = 307.35 AUD
+======================================================
+Customer Name = Tejas
+Pizza Quantity = 5
+Pasta Quantity = 5
+Total Pizza Price = 54.95
+Total Pasta Price = 47.5
+Congratulation !! 1.5ltr soft drink is free
+Congratulation  !! 2 bruschetta Free
+Congratutalion 2 choco brownie Icecream Free
+Total Amount = 102.45 AUD
+======================================================

@@ -1,0 +1,1 @@
+# same defination as 24.py

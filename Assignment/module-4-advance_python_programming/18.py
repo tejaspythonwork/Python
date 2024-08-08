@@ -1,0 +1,1 @@
+# Q:what happen when "1==1" is executed in python

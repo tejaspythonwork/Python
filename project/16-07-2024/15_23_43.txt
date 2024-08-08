@@ -1,0 +1,11 @@
+
+--------------- 16-07-2024 -------------------
+--------------- 15_23_43 -------------------
+
+your name = Tejas
+your email = t@gmail.com
+your gender = male
+your contact = 8565445
+your vac type = v
+your dose number = 1
+---------------------------------------------------
