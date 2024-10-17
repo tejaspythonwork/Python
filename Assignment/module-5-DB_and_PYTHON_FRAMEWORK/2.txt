@@ -1,0 +1,4 @@
+Q2: How to check installed version of django
+Ans2:
+command:
+django-m django --version

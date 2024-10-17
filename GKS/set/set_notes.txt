@@ -3,4 +3,5 @@ set is
 2.un-sequenceable
 3.un-indexable
 4.mutable: you can add element or remove elements after set is created
+5.set not allow duplicates
 

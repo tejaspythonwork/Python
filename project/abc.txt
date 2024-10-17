@@ -42,3 +42,10 @@ Congratulation  !! 2 bruschetta Free
 Congratutalion 2 choco brownie Icecream Free
 Total Amount = 102.45 AUD
 ======================================================
+Customer Name = name is tejas
+Pizza Quantity = 0
+Pasta Quantity = 0
+Total Pizza Price = 0.0
+Total Pasta Price = 0.0
+Total Amount = 0.0 AUD
+======================================================

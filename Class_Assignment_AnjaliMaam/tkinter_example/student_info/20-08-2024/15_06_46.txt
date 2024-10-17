@@ -1,0 +1,8 @@
+
+=====================================
+ --------Student Information---------
+
+
+student name = Tejas
+student email = t@gmail.com
+student contact number = 8460512281
