@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>eLEARNING - eLearning HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'myapp/lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'myapp/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'myapp/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'myapp/css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>eLEARNING</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-3 text-white animated slideInDown">Courses</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Courses</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Categories Start -->
+    
+    <!-- Categories Start -->
+
+
+    <!-- Courses Start -->
+    
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Courses</h6>
+                <h1 class="mb-5">Popular Courses</h1>
+            </div>
+            <div id="coursesCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" style="direction: rtl;">
+                    {% for i in course %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <div class="course-item bg-light">
+                            <div class="position-relative overflow-hidden" style="height: 300px;">
+                                <img class="img-fluid course-img w-100 h-100" src="{{ i.course_image.url }}" alt="Course Image" style="object-fit: cover;">
+                                
+                            </div>
+                            <div class="text-center p-4 pb-0">
+                                <h3 class="mb-0">Rs.{{ i.fees }}</h3>
+                                <div class="mb-3">
+                                    {% comment %} {% for j in "12345"|slice:i.course_rating %}
+                                    <small class="fa fa-star text-primary"></small>
+                                    {% endfor %} {% endcomment %}
+                                    {% comment %} <small>({{ i.course_reviews }})</small> {% endcomment %}
+                                </div>
+                                <h5 class="mb-4">{{ i.course_name }}</h5>
+                            </div>
+                            <div class="w-100 d-flex justify-content-center position-absolute bottom-0 start-0 mb-4">
+                                <a href ="{% url 'course_detail' i.id %}" class="flex-shrink-0 btn btn-sm btn-primary px-3 border-end" style="border-radius: 30px 0 0 30px;">Read More</a>
+                                <a href ="{% url 'joincourses' i.id stud.id %}" class="flex-shrink-0 btn btn-sm btn-primary px-3" style="border-radius: 0 30px 30px 0;">Join Now</a>
+                            </div>
+                            <div class="d-flex border-top">
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-user-tie text-primary me-2"></i>{{ i.instructor_name }}</small>
+                                <small class="flex-fill text-center border-end py-2"><i class="fa fa-clock text-primary me-2"></i>{{ i.duration }}</small>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#coursesCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#coursesCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- Custom CSS -->
+    <style>
+        .course-item {
+            overflow: hidden;
+        }
+    
+        .course-img {
+            transition: transform 0.5s ease;
+        }
+    
+        .course-item:hover .course-img {
+            transform: scaleX(1.2);
+        }
+
+        
+            body {
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                background-color: #f0f0f0;
+            }
+            .course-container {
+                width: 250px;
+                height: 350px;
+                border: 2px solid #ccc;
+                border-radius: 10px;
+                margin: 15px;
+                overflow: hidden;
+                background-color: white;
+                text-align: center;
+                box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+            }
+            .course-image {
+                width: 100%;
+                height: 200px;
+                background-color: #e0e0e0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .course-image img {
+                max-width: 100%;
+                max-height: 100%;
+            }
+            .course-info {
+                padding: 10px;
+            }
+            .course-info h3 {
+                font-size: 18px;
+                margin: 10px 0;
+            }
+            .course-info p {
+                margin: 5px 0;
+                font-size: 14px;
+            }
+            
+            .btn-inquiry {
+                background-color: #f0ad4e;  /* Orange color */
+                color: white;
+                margin-right: 10px;
+            }
+            
+            .btn-join {
+                background-color: #5cb85c;  /* Green color */
+                color: white;
+            }
+    </style>
+    
+    <!-- Bootstrap JS (Bundle includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
+    <!-- Courses End -->
+
+
+    <!-- Testimonial Start -->
+    {% for c in course %}
+    <div class="course-container">
+        <div class="course-image">
+            <img src="{{ c.course_image.url }}" alt="{{ c.name }}">
+        </div>
+        <div class="course-info">
+            <h3>{{ c.name }}</h3>
+            <p>Duration: {{ c.duration }}</p>
+            <p>Fees: {{ c.fees }}</p>
+            <p>Teaching Person: {{ c.course_teaching_person }}</p>
+            
+            <!-- Inquiry and Join Now Buttons -->
+            <div class="course-actions">
+                {% comment %} <button a href="{% url 'inquery_course' c.id %}"  class="btn btn-inquiry">Inquiry</button> {% endcomment %}
+                <a href="{% url 'inquery_course' c.id stud.id %}" class="btn btn-inquiry">Inquiry</a>
+                <a href="{% url 'joincourses' c.id stud.id %}" class="btn btn-join">Join Now</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}    
+    <!-- Testimonial End -->
+        
+
+    <!-- Footer Start -->
+        <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'myapp/lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'myapp/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'myapp/lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'myapp/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'myapp/js/main.js' %}"></script>
+</body>
+
+</html>

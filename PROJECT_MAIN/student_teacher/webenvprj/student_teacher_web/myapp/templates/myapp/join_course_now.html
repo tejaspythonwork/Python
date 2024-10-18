@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Now Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
+        .form-container {
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .form-title {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 30px;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .form-group label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h2 class="form-title">Join Now</h2>
+        <form action = "{% url 'joincourses' course.id student.id %}" method = 'post'>
+            {% csrf_token %}
+            <div class="mb-3 form-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" class="form-control" id="studentName" placeholder="Enter your name" name = 'sname' value = '{{student.fname}}' required>
+            </div>
+            <div class="mb-3 form-group">
+                <label for="courseName">Course Name</label>
+                <input type="text" class="form-control" id="courseName" placeholder="Enter course name" name='cname' value = '{{course.course_name}}' required>
+            </div>
+            <div class="mb-3 form-group">
+                <label for="duration">Duration</label>
+                <input type="text" class="form-control" id="duration" placeholder="Enter duration (e.g., 10 hrs)" name = 'durationofcourse' value = '{{course.duration}}'  required>
+            </div>
+            <div class="mb-3 form-group">
+                <label for="fees">Fees</label>
+                <input type="text" class="form-control" id="fees" placeholder="Total Fees In Rupees" name = 'fees' value = '{{course.fees}}'  required>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Join Now</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

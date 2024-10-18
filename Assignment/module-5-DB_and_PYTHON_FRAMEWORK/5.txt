@@ -1,0 +1,32 @@
+Q5: What is a QuerySet?Write program to create a new Post object in
+database
+Ans: A QuerySet in Django is a collection of database queries that fetch data from your database. 
+It's used to retrieve, filter,
+and manipulate database records efficiently.
+
+example:
+===============================================================
+models
+------
+This is an example of model
+
+from django.db import models
+
+class Post(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+
+views
+------
+
+def create_post(request):
+    new_post = Post.objects.create(
+        title="My First Post", 
+        content="This is the content of the post."
+    )
+    return HttpResponse(f"Post '{new_post.title}' created successfully!")

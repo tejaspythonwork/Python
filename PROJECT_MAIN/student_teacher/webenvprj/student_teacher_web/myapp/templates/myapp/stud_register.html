@@ -1,0 +1,118 @@
+{% load static %}
+<html>
+<head>
+
+<title>STUDENT REGISTRATION FORM</title>
+<link rel="stylesheet" href="{% static 'myapp/static/style.css' %}">
+</head>
+
+<body>
+ 
+  <h1 style = "text-align: center;">REGISTRATION FORM</h1>
+  <div class="con">
+    <form action="{% url 'reg' %}" method="post" enctype = 'multipart/form-data'>
+    {% csrf_token %}    
+
+    {% if smsg %}
+    <div class="w3-panel w3-green">
+      <h3>{{smsg}}</h3>
+    </div> 
+
+    {% endif %}
+   
+
+    <table align="center" cellpadding = "10">
+    <tr>
+      <td>Select Your Role</td>
+      <td><select name="role">
+        <option disabled selected='Select Your Role'>Select Your Role</option>
+        <option value = 'Teacher'>Teacher</option>
+        <option value = 'Student'>Student</option>
+      </select></td>
+    </tr>
+    
+    
+    <tr>
+      <td>First Name</td>
+      <td><input name="fname" type="text" /></td>
+      <td>Last Name</td>
+      <td><input name="lname" type="text" /></td>
+    </tr>
+  
+  <tr>
+      <td>Guardian Name</td>
+      <td><input name="gname" type="text" /></td>
+      <td>Age</td>
+      <td><input name="age" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Gender</td>
+      <td><select name="gender">
+        <option disabled selected='Select Your Gender'>Select Your Gender</option>
+        <option value = 'Male'>Male</option>
+        <option value = 'Female'>Female</option>
+      </select></td>
+      <td>Mobile No</td>
+      <td><input name="mob" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Email Address</td>
+      <td colspan="4"><input name="email" type="text" size="62"></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td colspan="4"><textarea name="address" cols="53" rows="5"></textarea></td>
+    </tr>
+    <tr>
+      <td>City</td>
+      <td><input name="city" type="text" /></td>
+      <td>State</td>
+      <td><input name="state" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Cuntry</td>
+      <td><input name="country" type="text" /></td>
+      <td>Pin</td>
+      <td><input name="pin" type="text" /></td>
+    </tr>
+    
+    <tr>
+      <td>Upload Image</td>
+      <td colspan="4">
+        <input type="file" name="profileimage" id="imageUpload" accept="image/*" onchange="previewImage(event)"></td>
+    </tr>
+
+    <!-- Image preview -->
+    <tr>
+      <td colspan="4">
+        <img id="imagePreview" src="" alt="Image Preview" style="max-width: 150px; max-height: 150px; display: none;">
+      </td>
+    </tr>
+
+    <tr>
+      <td></td>
+      <td colspan="4"><input type="submit" value="Submit" class="submit"></td>
+      
+    </tr>
+  
+    
+    
+    {% comment %} -------------------------------- {% endcomment %}
+  </table>                        
+</form>
+
+ </div>
+
+ <script>
+  function previewImage(event) {
+      var reader = new FileReader();
+      reader.onload = function(){
+          var output = document.getElementById('imagePreview');
+          output.src = reader.result;
+          output.style.display = 'block';  // Show the image preview
+      };
+      reader.readAsDataURL(event.target.files[0]);
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .profile-button {
+            background-color: #007bff;
+            color: white;
+        }
+        .profile-button:hover {
+            background-color: #0056b3;
+        }
+        .labels {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .add-experience {
+            cursor: pointer;
+            color: #007bff;
+        }
+        .add-experience:hover {
+            color: #0056b3;
+        }
+        /* Added to style the profile image */
+        #profileImage {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container rounded bg-white mt-5 mb-5">
+    <form name = 'frm1' action = "{% url 'update_profile' %}" method = "post" enctype="multipart/form-data"> 
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                    <!-- Updated image to have id="profileImage" -->
+                    <img id="profileImage" class="rounded-circle mt-5" width="150px" 
+                    src="{% if stu.pic_student %}{{ stu.pic_student.url }}{% elif stu.pic_teacher %}{{ stu.pic_teacher.url }}{% else %}/static/images/default_profile.png{% endif %}" 
+                    alt="Profile Image">
+                    <!-- Added onchange event to trigger image preview -->
+                    <input type="file" id="imageUpload" class="form-control mt-3" accept="image/*" name = 'myprofilepic'  onchange="previewImage(event)">
+                </div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Profile Settings</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-6">
+                            <label class="labels">Name</label>
+                            
+                            <input type="text" name = 'fname' class="form-control" placeholder="first name" value='{{stu.fname}}'>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="labels">Last Name</label>
+                            <input type="text" name = 'lname' class="form-control" placeholder="surname" value = "{{stu.lname}}" >
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <label class="labels">Mobile Number</label>
+                            <input type="text" name = 'mob' class="form-control" placeholder="enter phone number" value="{{stu.mob}}">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">Address</label>
+                            <input type="text" name = 'address' class="form-control" placeholder="enter address" value="{{stu.address}}">
+                        </div>
+                        
+                        <div class="col-md-12">
+                            <label class="labels">Postcode</label>
+                            <input type="text" name = 'pin' class="form-control" placeholder="enter pincode" value="{{stu.pin}}">
+                        </div>
+                        <div class="col-md-12">
+                            <label class="labels">State</label>
+                            <input type="text" class="form-control" placeholder="enter state" value="{{stu.state}}">
+                        </div>
+                            <div class="col-md-12">
+                            <label class="labels">Email ID</label>
+                            <input type="text" name = 'email' class="form-control" placeholder="enter email id" value="{{stu.email}}">
+                        </div>
+                        
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <label class="labels">Country</label>
+                            <input type="text" name = 'country' class="form-control" placeholder="country" value="{{stu.country}}">
+                        </div>
+                    </div>
+                    <div class="mt-5 text-center">
+                        {% comment %} <button class="btn btn-primary profile-button" type="button">Save Profile</button> {% endcomment %}
+                        &nbsp;&nbsp;
+                        <input type = 'submit' value = 'Update'>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </form>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- JavaScript to handle image preview -->
+    <script>
+        function previewImage(event) {
+            var reader = new FileReader();
+            reader.onload = function(){
+                var output = document.getElementById('profileImage');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+</body>
+</html>

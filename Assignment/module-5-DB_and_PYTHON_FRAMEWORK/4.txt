@@ -1,0 +1,48 @@
+Q4: what is django url make a project to create django urls
+Ans:
+
+
+urls.py
+-------
+
+urlpatterns = [
+    path('register/',views.view_courses,name='reg'),
+]
+
+according to urls.py we have to import 
+1.views
+2.path
+
+mainly 2 imports are necessary
+
+views.py
+-------
+
+after that we have to create view which has same name as 
+we have specified in path
+
+example 0f views
+*****
+def view_courses(request):
+    # for popular courses
+    try:
+        course = Courses.objects.all()
+        stud = Student.objects.get(email=request.session['email'])
+        context = {
+            'course':course,
+            'stud' : stud
+        }
+        print('---------')
+        print(course.id)
+        for i in course:
+            print(i.course_name)
+        return render(request,'myapp/courses.html',context)
+    except Exception as e:
+        print(e)
+    return render(request,'myapp/courses.html',context)
+
+
+html page:(named as courses.html):
+****
+we have to write complete html page and specify 
+parameters accordingly to that particular views

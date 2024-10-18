@@ -1,0 +1,4 @@
+Q7: Explain what does django-admin.py make messages command is used
+for?
+Ans: this command can be useful for create "translatable"
+used for translating text to diffrent languages

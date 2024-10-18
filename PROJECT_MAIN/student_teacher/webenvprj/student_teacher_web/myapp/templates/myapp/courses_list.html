@@ -1,0 +1,104 @@
+<html>
+<head>
+    <title>Edit and Delete Courses</title>
+    <style>
+        table {
+            width: 100%;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* Set a fixed width for the Actions column */
+        td.actions {
+            width: 200px;  /* Adjust this value as needed */
+            text-align: center;
+        }
+        /* Style the buttons to be smaller */
+        .btn {
+            padding: 5px 10px;
+            font-size: 12px;
+            text-decoration: none;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin: 2px;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        /* Flexbox to align buttons inline */
+        .action-buttons {
+            display: flex;
+            justify-content: space-around;
+        }
+        /* Style the PDF link smaller */
+        a.pdf-link {
+            font-size: 12px;
+            display: inline-block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Courses List</h2>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Course Name</th>
+                <th>Course Image</th>
+                <th>Duration</th>
+                <th>Fees</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for course in courses %}
+                <tr>
+                    <td>{{ course.course_name }}</td>
+                    <td><img src="{{ course.course_image.url }}" alt="{{ course.course_name }}" style="width:100px;height:100px;"></td>
+                    <td>{{ course.duration }}</td>
+                    <td>{{ course.fees }}</td>
+                    <td class="actions">
+                        
+                        <div class="action-buttons">
+                        
+                            <a href="{% url 'edit_course' course.id %}" >Edit</a>
+
+                            
+                            <form method="post" action="{% url 'delete_course' course.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit">Delete</button>
+                            </form>
+                        </div>
+
+                        
+                        {% if course.lecture_flow %}
+                            <a href="{{ course.lecture_flow.url }}" target="_blank" class="pdf-link">View Lecture Flow (PDF)</a>
+                        {% else %}
+                            <p class="pdf-link">No Lectureflow uploaded.</p>
+                        {% endif %}
+                        {% comment %} <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <label for="lecture_flow">Upload Lecture Flow PDF:</label>
+                            <input type="file" name="lecture_flow" accept=".pdf" required>
+                            <button type="submit">Upload PDF</button>
+                        </form> {% endcomment %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

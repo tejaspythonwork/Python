@@ -1,0 +1,15 @@
+Q6: mention which command can be used to load data into django
+Ans: 
+this command
+****************
+python manage.py loaddata <fixture_file>
+****************
+
+fixture_file = it means that format like 
+1.json
+2.xml
+3.YAML
+
+example:
+********
+python manage.py loaddata posts.json

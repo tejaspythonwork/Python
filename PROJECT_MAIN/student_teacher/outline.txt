@@ -1,0 +1,39 @@
+A.Student Registration
+    1.Personal Details
+    2.Academic Details
+    3.Login Credentials
+    4.Document Upload
+
+B.Teacher Registration
+    1.Personal Details
+    2.Professional Details
+    3.Login Credentials
+    4.Role Assignment
+
+*********************************
+
+C. Teacher Functionalities
+    1.Manage Courses
+    2.Upload Study Material
+    3.View Student Details
+    4.Mark Attendence
+    5.Upload Result
+    6.Manage Events
+    7.Assign Courses to Students
+*********************************
+
+D. Admin Module 
+    1.Admin Registration and login 
+    2.Register as Admin
+    3.Manage Student and Teachers
+    4.Manage Fees And Payment
+    5.Generate user Credentials
+********************************
+E. Pages
+    A.Register and Login
+    B.Home Pages
+    C.About Us
+    D.Contact Us
+    E.Department
+    F.Details Page
+********************************    

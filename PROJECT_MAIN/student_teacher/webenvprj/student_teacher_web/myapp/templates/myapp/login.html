@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #6a0572, #0fa36b);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+        .login-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 300px;
+        }
+        h2 {
+            color: #333;
+        }
+        .login-box select, 
+        .login-box input[type="text"], 
+        .login-box input[type="password"],
+        .login-box input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        .login-box input[type="submit"] {
+            background-color: #6a0572;
+            color: white;
+            cursor: pointer;
+        }
+        .login-box input[type="submit"]:hover {
+            background-color: #0fa36b;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            
+            <select name="role">
+                <option disabled selected>Select Your Role</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Student">Student</option>
+            </select>
+            <input type="text" name="email" placeholder="Username" required>
+            <input type="password" name="pin" placeholder="Pin" required>
+            <input type="submit" value="Submit">
+
+            &nbsp;&nbsp;
+            <a href="{% url 'reg' %}">
+                <h4 style="color: blue;">Click Here for register</h4>
+            </a>
+        </form>
+    </div>
+</body>
+</html>

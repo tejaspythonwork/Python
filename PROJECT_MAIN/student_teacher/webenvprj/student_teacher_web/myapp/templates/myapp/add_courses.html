@@ -1,0 +1,73 @@
+{% load static %}
+<html>
+<head>
+
+<title>Add New Course FORM</title>
+<link rel="stylesheet" href="{% static 'myapp/static/style.css' %}">
+</head>
+
+<body>
+ 
+  <h1 style = "text-align: center;">Add Course FORM</h1>
+  <div class="con">
+    <form action="{% url 'addcourses' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}    
+
+    {% if smsg %}
+    <div class="w3-panel w3-green">
+      <h3>{{smsg}}</h3>
+    </div> 
+
+    {% endif %}
+   
+
+    <table align="center" cellpadding = "10">
+    
+
+    <tr>
+        <td>Please select</td>
+        <td>
+        <select name = 'who'>
+            <option disabled selected = 'Select who you are'>Who You Are?</option>
+            <option value = 'Admin'>Admin</option>
+            <option value = 'Teacher'>Teacher</option>
+        </select>
+    </td>
+    </tr>    
+    <tr>
+      <td>Course Name</td>
+      <td><input name="cname" type="text" ></td>
+    </tr>
+    <tr>
+      <td>Course Image</td>
+      <td><input type="file" name="coursepic" /></td>
+    </tr>
+      
+    <tr>
+        <td>Fees</td>
+        <td><input name="fees" type="text" ></td>
+    </tr>
+    <tr>
+        <td>Duration</td>
+        <td><input name="duration" type="text" ></td>
+      </tr>
+    <tr>
+        <td>Specify your email Addrees same as you registered</td>
+        <td><input name="regemail" type="text" ></td>
+    </tr>  
+    <tr>
+      <td>Lecture Flow Upload (PDF)</td>
+      <td><input type="file" name="lecture_flow"></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td colspan="4"><input type="submit" value="Submit"></td>
+    </tr>
+  </table>                        
+</form>
+
+</div>
+
+ 
+</body>
+</html>

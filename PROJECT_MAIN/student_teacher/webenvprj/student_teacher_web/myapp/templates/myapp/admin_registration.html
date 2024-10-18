@@ -1,0 +1,50 @@
+{% load static %}
+<html>
+<head>
+
+<title>ADMIN REGISTRATION FORM</title>
+<link rel="stylesheet" href="{% static 'myapp/static/style.css' %}">
+</head>
+
+<body>
+ 
+  <h1 style = "text-align: center;">REGISTRATION FORM</h1>
+  <div class="con">
+    <form action="{% url 'adminreg' %}" method="post">
+    {% csrf_token %}    
+
+    {% if smsg %}
+    <div class="w3-panel w3-green">
+      <h3>{{smsg}}</h3>
+    </div> 
+
+    {% endif %}
+   
+
+    <table align="center" cellpadding = "10">
+    
+    <tr>
+      <td>Admin Name</td>
+      <td><input name="aname" type="text" /></td>
+    </tr>
+    <tr>
+      <td>Email Address</td>
+      <td colspan="4"><input name="aemail" type="text" size="62"></td>
+    </tr>
+    <tr>
+        <td>Password</td>
+        <td colspan="4"><input name="apass" type="text" size="62"></td>
+    </tr>
+      
+    <tr>
+        <td></td>
+        <td colspan="4"><input type="submit" value="Submit" class="submit"></td>
+    </tr>
+  </table>                        
+</form>
+
+ </div>
+
+ 
+</body>
+</html>
