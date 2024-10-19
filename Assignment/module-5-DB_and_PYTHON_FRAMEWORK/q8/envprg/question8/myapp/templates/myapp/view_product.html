@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        /* Existing CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background: #fff;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100px;
+            max-height: 100px;
+            margin-bottom: 10px;
+        }
+        .product-info {
+            margin-bottom: 10px;
+        }
+        .delete-link {
+            color: red;
+        }
+        form {
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input, button {
+            margin: 5px 0;
+            padding: 10px;
+            width: calc(100% - 22px);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1><a href = "{% url 'add_product' %}">Add Product</a></h1>
+    <h1>Products</h1>
+
+    <!-- Form to Add New Product -->
+    
+    <ul>
+        {% for product in products %}
+        <li>
+            <div class="product-info">
+                <strong>{{ product.product.product_name }}</strong> - {{ product.product_model }} <br>
+                <span>Price: ${{ product.product_price }}</span> <br>
+                <span>RAM: {{ product.product_ram }}</span>
+            </div>
+            {% if product.product_image %}
+                <img src="{{ product.product_image.url }}" alt="Product Image">
+            {% endif %}
+            <br>
+            {% comment %} <a href="{% url 'update_product' product.id %}">Edit</a> {% endcomment %}
+            {% comment %}  <a href="{% url 'delete_product' product_id %}" class="delete-link">Delete</a>  {% endcomment %}
+            <form method="post" action="{% url 'delete_product' product.id %}" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+            <br>
+            <form method="post" action="" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Edit</button>
+            </form>
+        </li>
+        {% empty %}
+        <li>No products available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
