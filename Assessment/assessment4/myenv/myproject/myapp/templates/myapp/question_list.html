@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Questions</title>
+</head>
+<body>
+    <h2>Your Questions</h2>
+    <ul>
+        {% for question in questions %}
+        <li>
+            <strong>Question:</strong> {{ question.question_text }} <br>
+            <strong>Asked on:</strong> {{ question.created_at|date:"d M Y H:i" }} <br>
+            <strong>Answered:</strong> {{ question.is_answered|yesno:"Yes,No" }} 
+        </li>
+        {% empty %}
+        <li>You haven't asked any questions yet.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

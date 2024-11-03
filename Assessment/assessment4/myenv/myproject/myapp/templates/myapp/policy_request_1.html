@@ -1,0 +1,29 @@
+{% comment %} {% extends 'index.html' %} {% endcomment %}
+
+{% block title %}Request a Policy{% endblock %}
+
+{% block content %}
+<h2>Request a New Policy</h2>
+
+<form id="policyForm" method="POST" action="{% url 'request_policy' %}">
+    {% csrf_token %}
+    
+    <!-- Policy Dropdown -->
+    <label for="policy">Select Policy:</label>
+    <select id="policy" name="policy" required>
+        <option value="">-- Choose a Policy --</option>
+        {% for policy in policies %}
+        <option value="{{ policy.id }}">{{ policy.policy_name }} - ${{ policy.premium_amount }}</option>
+        {% endfor %}
+    </select>
+    <br>
+    
+    <!-- Submit Button -->
+    <input type="submit" value="Submit Request">
+</form>
+
+<!-- Load JavaScript Validation -->
+{% load static %}
+<script src="{% static 'myapp/js/validate.js' %}"></script>
+
+{% endblock %}

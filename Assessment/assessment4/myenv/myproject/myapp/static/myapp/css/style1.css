@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #34495e;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table,
+th,
+td {
+    border: 1px solid #ddd;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: center;
+}
+
+thead {
+    background-color: #f4f4f4;
+}
+
+.badge {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.9em;
+}
+
+.badge.approved {
+    background-color: #27ae60;
+    color: white;
+}
+
+.badge.pending {
+    background-color: #f39c12;
+    color: white;
+}
+
+.btn {
+    padding: 8px 12px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.btn-approve {
+    background-color: #2ecc71;
+}
+
+.btn-reject {
+    background-color: #e74c3c;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+.action-disabled {
+    color: #7f8c8d;
+}

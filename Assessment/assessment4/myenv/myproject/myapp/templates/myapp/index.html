@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard Sidebar</title>
+    {% load static %}  <!-- Load the static template tag library -->
+    <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}"> <!-- Link to CSS file -->
+</head>
+<body>
+    <!-- Sidebar area -->
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <img src="{% static 'myapp/images/logo.png' %}" alt="Logo" style="width: 80px; height: 80px;">
+        </div>
+        <div class="admin-name">Admin</div>
+        <ul class="sidebar-menu">
+            <li><a href="#" class="active">Dashboard</a></li>
+            <li><a href="{% url 'customersoperations' %}">Customers</a></li>
+            <li><a href="{% url 'disppolicy' %}">Policies</a></li>
+            <li><a href="{% url 'qdashboard' %}">Questions</a></li>
+        </ul>
+    </div>
+
+    <!-- Main content area -->
+    <div class="main-content">
+        <h1>Welcome to the Admin Dashboard</h1>
+    
+        <!-- Container for all rectangles -->
+        <div class="rectangle-container">
+            <a href="#" class="rectangle-link">
+                <div class="rectangle">Total Registered Users: {{ total_users }}</div>
+            </a>
+            <a href="#" class="rectangle-link">
+                <div class="rectangle">Listed Policies : {{ listed_policies }}</div>
+            </a>
+            <a href="#" class="rectangle-link">
+                <div class="rectangle">Total Policy Holder : {{ total_policy_holder }}</div>
+            </a>
+            <a href="#" class="rectangle-link">
+                <div class="rectangle">Approved Policy Holder : {{ approved_policy_holder }}</div>
+            </a>
+            <a href="#" class="rectangle-link">
+                <div class="rectangle">Disapproved Policy Holder : {{ disapproved_policy_holders }}</div>
+            </a>
+            <a href="#" class="rectangle-link">
+                <div class="rectangle">Policy Holder Waiting For Approval {{ disapproved_policy_holders }}</div>
+            </a>
+            {% comment %}  {% endcomment %}
+            <a href="#" class="rectangle-link">
+                <div class="rectangle">Policy Holder Waiting For Approval {{ disapproved_policy_holders }}</div>
+            </a>    
+            {% comment %}  {% endcomment %}
+            <a href="#" class="rectangle-link">
+                <div class="rectangle">Total Number Of Questions : {{ total_question }}</div>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>

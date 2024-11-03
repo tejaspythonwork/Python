@@ -1,0 +1,41 @@
+<!-- policies/templates/user_dashboard.html -->
+{% extends 'base.html' %}
+
+{% block title %}User Dashboard{% endblock %}
+
+{% block content %}
+<h2>Welcome, {{ user.username }}!</h2>
+
+<h3>Your Policy Requests</h3>
+
+{% if policy_holders %}
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Policy Name</th>
+                <th>Request Date</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for holder in policy_holders %}
+            <tr>
+                <td>{{ holder.policy.policy_name }}</td>
+                <td>{{ holder.request_date }}</td>
+                <td>
+                    {% if holder.is_approved %}
+                        Approved on {{ holder.approval_date }}
+                    {% else %}
+                        Pending Approval
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>You have not requested any policies yet.</p>
+{% endif %}
+
+<a href="{% url 'request_policy' %}">Request a New Policy</a>
+{% endblock %}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Approvals</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'myapp/css/style1.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Policy Approvals</h1>
+        <table class="policy-table">
+            <thead>
+                <tr>
+                    <th>Policy Holder</th>
+                    <th>Email</th>
+                    <th>Policy Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for policy_holder in policy_holders %}
+                <tr>
+                    <td>{{ policy_holder.user.username }}</td>
+                    <td>{{ policy_holder.user.email }}</td>
+                    <td>
+                        {% if policy_holder.is_approved %}
+                            <span class="badge approved">Approved</span>
+                        {% else %}
+                            <span class="badge pending">Pending</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if not policy_holder.is_approved %}
+                        <a href="{% url 'approve_policy' policy_holder.id %}" class="btn btn-approve">Approve</a>
+                        <a href="{% url 'reject_policy' policy_holder.id %}" class="btn btn-reject">Reject</a>
+                        {% else %}
+                        <span class="action-disabled">Actions Disabled</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="4">No policies pending approval.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
